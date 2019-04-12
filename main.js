@@ -7,7 +7,8 @@ const {app,BrowserWindow,Menu} = electron;
 let mainWindow ;
 
 app.on("ready",function() {
-      mainWindow = new BrowserWindow({});
+     mainWindow = new BrowserWindow({width: 100000, height: 10000})
+      mainWindow.setMenuBarVisibility(false)
       
       mainWindow.loadURL(url.format({
            pathname : path.join(__dirname,"index.html"),
@@ -15,11 +16,11 @@ app.on("ready",function() {
            slashes:true,
       }));
 
-      const mainMenu = Menu.buildFromTemplate(templatemenu);
-      Menu.setApplicationMenu(mainMenu);
+     /* const mainMenu = Menu.buildFromTemplate(templatemenu);
+      Menu.setApplicationMenu(mainMenu);*/
 });
 
-const templatemenu = [
+/*const templatemenu = [
     {
         label:"File",
         submenu: [
@@ -32,4 +33,4 @@ const templatemenu = [
             }
         ]
     }
-];
+];*/
