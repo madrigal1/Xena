@@ -1,0 +1,22 @@
+{
+  "name": "xena",
+  "version": "1.0.0",
+  "description": "data driven journal app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madrigal1/Xena.git"
+  },
+  "author": "madrigal1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/madrigal1/Xena/issues"
+  },
+  "homepage": "https://github.com/madrigal1/Xena#readme",
+  "dependencies": {
+    "electron": "^4.1.4"
+  }
+}
