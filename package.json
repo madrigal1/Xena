@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/madrigal1/Xena#readme",
   "dependencies": {
-    "electron": "^4.1.4"
+    "electron": "^4.1.4",
+    "material-design-icons-iconfont": "^4.0.5"
   }
 }
