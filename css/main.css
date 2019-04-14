@@ -1,0 +1,32 @@
+#lock {
+    position: fixed;
+    top:89%;
+}
+
+.material-icons {
+    font-size: 4rem !important;
+    position: fixed !important;
+}
+
+#nav {
+    padding-left:0.7rem;
+    padding-top:1rem;
+    height:43.5rem;
+    width:4.5rem;
+    box-sizing:border-box;
+}
+
+#log {
+    position:fixed;
+    left:4.5rem; 
+    top:0rem; 
+    height: 43.5rem;
+    width:25rem;
+    box-shadow: 1px grey;
+    /* background-color: aqua; */
+}
+
+i.icon {
+    color: grey;
+    font-size:3rem !important;
+}
