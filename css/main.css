@@ -1,3 +1,8 @@
+/*fonts*/
+@font-face {
+    font-family: "JaneRoe";
+    src: url("../fonts/janeroe/bold.ttf");
+    }
 #lock {
     position: fixed;
     bottom:0.5rem;
@@ -14,12 +19,13 @@
     height:50rem;
     width:4.5rem;
     box-sizing:border-box;
+    background-color:rgb(38, 32, 75);
 }
 
 #log {
     position:fixed;
     left:4.5rem; 
-    top:3.5rem; 
+    top:0rem; 
     height: 40rem;
     width:20rem;
     box-shadow: 1px 1px 1px #e0e0e0 ;
@@ -28,7 +34,7 @@
 
 #action_bar {
     position:fixed;
-    left:4.5rem; 
+    left:24.5rem; 
     top:0rem; 
     height:3.5rem;
     width:90rem;
@@ -36,9 +42,9 @@
 }
 
 i.icon_nav {
-    color: rgb(90, 89, 89);
     font-size:3rem !important;
 }
+
 
 i.icon_actionbar {
     position:fixed;
@@ -96,4 +102,28 @@ textarea::-webkit-input-placeholder {
   
   textarea::placeholder {
     color: rgb(95, 95, 95);
+  }
+
+  .project {
+      position: fixed;
+      top:1.5rem;
+      left:0.1rem;
+      background-color:rgb(38, 32, 75);
+      height: 3rem;
+      width:3rem;
+  }
+
+  .id {
+      background-color:rgb(179, 111, 90);
+      height: 3rem;
+      width:3rem;
+      position:absolute;
+      top:0rem;
+      left:0.6rem;
+      border-radius: 0.4rem ;
+      font-family:"JaneRoe";
+      font-size:2.5rem;
+      box-sizing: border-box;
+      padding-left:0.8rem;
+      padding-bottom: 3.2rem;
   }
