@@ -176,7 +176,7 @@ textarea::-webkit-input-placeholder {
         top:5rem;
         left:5rem;
         font-family:"JohnRoe";
-        background-color: aqua;
+      /*   background-color: aqua; */
         height:15rem;
         width:19rem;
         font-size:1.4rem;
@@ -186,3 +186,31 @@ textarea::-webkit-input-placeholder {
         color:rgb(172, 171, 171);
         font-size:2.2rem !important;
     }
+
+    #mainarea { 
+       /* background-color:aqua; */
+       position:fixed;
+       left:24.5rem; 
+       top:6.6rem; 
+       height:37rem;
+       width:65.8rem;
+       word-wrap: break-word;
+       outline:none;
+       border:none;
+    }
+
+    body::-webkit-scrollbar {
+        width: 9px;
+    } 
+
+    body::-webkit-scrollbar-thumb {
+        background: rgb(52, 45, 114);
+        border: 1px solid rgb(0,0,0);
+    }
+
+    body::-webkit-scrollbar-track {
+    background: rgb(0,0,0);
+    border: 4px solid transparent;
+    background-clip: content-box;  
+    }
+    
