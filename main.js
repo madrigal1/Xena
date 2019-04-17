@@ -8,7 +8,7 @@ let mainWindow ;
 
 app.on("ready",function() {
      mainWindow = new BrowserWindow({width: 100000, height: 10000})
-     // mainWindow.setMenuBarVisibility(false)
+     mainWindow.setMenuBarVisibility(false)
       
       mainWindow.loadURL(url.format({
            pathname : path.join(__dirname,"index.html"),
