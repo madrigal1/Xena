@@ -12,11 +12,6 @@
     bottom:0.5rem;
 }
 
-.material-icons {
-    font-size: 4rem !important;
-    position: fixed !important;
-}
-
 #nav {
     padding-left:0.7rem;
     padding-top:0.4rem;
@@ -68,11 +63,11 @@ i.icon_actionbar {
     top:1.5rem;
 }
 
-#ProjectName {
+#ProjectTabs {
     position:fixed;
     box-sizing: border-box;
-    padding-left: 1.5rem;
-    padding-top:1rem;
+    padding-left: 0.7rem;
+    padding-top:0rem;
     padding-bottom:0.1rem;
     left:24.5rem; 
     top:3.6rem; 
@@ -80,12 +75,38 @@ i.icon_actionbar {
     width:66rem;
     box-shadow: 0px 2px 0px #e0e0e0 ;
     border:none;
-    overflow:auto;
+    overflow:hidden;
     outline:none;
     resize:none;
-    font-size:1.5rem;
-    font-family:"Lucidia Console" !important;
+    font-size:1.3rem;
+    font-family:"JoneRoeLight" !important;
     caret-color: rgb(204, 193, 193);
+    display:flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap ;
+}
+
+.tabs_nav {
+    height:2.8rem;
+    width:12rem;
+    box-sizing: border-box;
+    padding-bottom: 1rem;
+    /* background-color:red */;
+}
+
+.tabs_nav_title {
+    position: relative;
+    top:0rem;
+    left:0rem;
+}
+
+.tabs_nav_button {
+    position: relative;
+    height:0.5rem;
+    width:0.9rem;
+    top:0.1rem;
+    left:0.1rem;
+    background-color:grey;
 }
 
 textarea::-webkit-input-placeholder {
@@ -148,4 +169,20 @@ textarea::-webkit-input-placeholder {
         left:0.2rem;
         top:2.5rem;
 
+    }
+
+    #actionbuttons {
+        position:fixed;
+        top:5rem;
+        left:5rem;
+        font-family:"JohnRoe";
+        background-color: aqua;
+        height:15rem;
+        width:19rem;
+        font-size:1.4rem;
+    }
+
+    .navicons {
+        color:rgb(172, 171, 171);
+        font-size:2.2rem !important;
     }
