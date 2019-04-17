@@ -197,6 +197,12 @@ textarea::-webkit-input-placeholder {
        word-wrap: break-word;
        outline:none;
        border:none;
+       resize:none;
+       overflow:auto;
+       font-size:2rem;
+       padding-left:2rem;
+       padding-top:0.5rem;
+       font-family:"JoneRoeLight";
     }
 
     body::-webkit-scrollbar {
