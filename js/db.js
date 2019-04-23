@@ -5,7 +5,7 @@ var log = (function() {
   /**
  * Open a connection to the datastore.
  */
-DB.open = function() {
+DB.open = function(callback) {
     // Database version.
     var version = 1;
   
@@ -34,13 +34,14 @@ DB.open = function() {
       // Get a reference to the DB.
       datastore = e.target.result;
       console.log("success database");
+      callback();
     };
   
     // Handle errors when opening the datastore.
     request.onerror = DB.onerror;
   };
 
-  DB.fetchTodos = function(callback) {
+  DB.fetchEntries = function(type,callback) {
     var db = datastore;
     var transaction = db.transaction(['log'], 'readwrite');
     var objStore = transaction.objectStore('log');
@@ -52,7 +53,7 @@ DB.open = function() {
   
     transaction.oncomplete = function(e) {
       // Execute the callback function.
-      callback(todos);
+      callback(entries);
     };
   
     cursorRequest.onsuccess = function(e) {
@@ -61,8 +62,10 @@ DB.open = function() {
       if (!!result == false) {
         return;
       }
-  
-      entries.push(result.value);
+      
+      if(type == result.value.type) {
+        entries.push(result.value);
+      }
   
       result.continue();
     };
@@ -76,7 +79,7 @@ DB.open = function() {
 /**
  * Create a new todo item.
  */
-DB.createEntry = function(text, callback) {
+DB.createEntry = function(text,type,callback) {
   // Get a reference to the db.
   var db = datastore;
 
@@ -90,18 +93,19 @@ DB.createEntry = function(text, callback) {
   var timestamp = new Date().toDateString();
 
   // Create an object for the todo item.
-  var todo = {
+  var entry = {
     'text': text,
+    'type':type,
     'timestamp': timestamp
   };
 
   // Create the datastore request.
-  var request = objStore.put(todo);
+  var request = objStore.put(entry);
 
   // Handle a successful datastore put.
   request.onsuccess = function(e) {
     // Execute the callback function.
-    callback(todo);
+    callback(entry);
   };
 
   // Handle errors.

@@ -11,9 +11,23 @@
     font-family: "mont";
     src: url("../fonts/mont/Montserrat-Light.otf");
     }
+.logentries {
+    height:3rem;
+    width:19rem;
 
-
-
+}
+ #entries{
+     position: absolute;
+     top:13rem;
+     left:0.1rem;
+     background-color: aqua;
+     overflow:auto;
+ }
+.toastSave {
+    position: fixed;
+    top:30rem !important;
+    left:5rem !important;
+}
 #lock {
     position: fixed;
     bottom:0.5rem;
@@ -210,6 +224,7 @@ textarea::-webkit-input-placeholder {
        padding-left:2rem;
        padding-top:0.5rem;
        font-family:"mont";
+       white-space: pre-wrap;
        /* display:flex;
        flex-direction: column;
        flex-wrap:wrap;

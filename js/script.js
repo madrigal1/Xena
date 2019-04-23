@@ -1,9 +1,25 @@
+var plannerType = 1;
+function fetch() {
+  log.fetchEntries(plannerType,function(entries) {
+      var List = document.getElementById("entries");
+      List.innerHTML= "";
+      for(var i=0;i<entries.length;i++) {
+        var entry = entries[(entries.length - 1 - i)];
+        var econtainer = document.createElement("div");
+        econtainer.id = 'entry-' + entry.timestamp;
+        var span = document.createElement('span');
+        span.innerHTML = entry.text;
+        econtainer.appendChild(span);
+        List.appendChild(econtainer);      
 
+      } 
+ });
+}
 
 window.onload = function() {
     var editor = document.getElementById("mainarea");
     var save = document.getElementById("save");
-     log.open()
+     log.open(fetch);
     /*  save.addEventListener("click",function() {
               var text = editor.value;
               if (text.replace(/ /g,'') != '') {
@@ -18,8 +34,9 @@ window.onload = function() {
         var text = editor.value;
         if (text.replace(/ /g,'') != '') {
           // Create the todo item.
-         log.createEntry(text, function(entry) {
+         log.createEntry(text,plannerType,function(entry) {
               console.log(entry);
+              M.toast({html: 'Saved !', classes: "toastSave"})
           });
         }
     });
@@ -34,5 +51,7 @@ window.onload = function() {
         } 
     
      });
+     
+     
 }
  
