@@ -13,8 +13,11 @@
     }
 .logentries {
     height:3rem;
-    width:19rem;
-
+    width:20rem;
+    font-family:"mont" ;
+    padding:0.4rem;
+    box-sizing: border-box;
+    font-size:1.3rem;
 }
  #entries{
      position: absolute;

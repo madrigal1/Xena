@@ -7,8 +7,9 @@ function fetch() {
         var entry = entries[(entries.length - 1 - i)];
         var econtainer = document.createElement("div");
         econtainer.id = 'entry-' + entry.timestamp;
+        econtainer.className ="logentries";
         var span = document.createElement('span');
-        span.innerHTML = entry.text;
+        span.innerHTML =  entry.text.split('\n')[0];
         econtainer.appendChild(span);
         List.appendChild(econtainer);      
 
@@ -32,11 +33,13 @@ window.onload = function() {
      Mousetrap.bind('ctrl+s', function(e) {
         e.preventDefault();
         var text = editor.value;
+        text.replace(/\r?\n/g, '<br />');
         if (text.replace(/ /g,'') != '') {
           // Create the todo item.
          log.createEntry(text,plannerType,function(entry) {
               console.log(entry);
               M.toast({html: 'Saved !', classes: "toastSave"})
+              fetch()
           });
         }
     });
