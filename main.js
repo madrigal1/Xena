@@ -1,8 +1,10 @@
+
+
 const electron = require("electron");
 const url = require("url");
 const path  = require("path");
 
-const {app,BrowserWindow,Menu} = electron;
+const {app,BrowserWindow,Menu,globalShortcut} = electron;
 
 let mainWindow ;
 
@@ -15,6 +17,10 @@ app.on("ready",function() {
            protocol:"file",
            slashes:true,
       }));
+
+      globalShortcut.register('CommandOrControl+S', () => {
+        console.log('CommandOrControl+X is pressed')
+      })
 
      /* const mainMenu = Menu.buildFromTemplate(templatemenu);
       Menu.setApplicationMenu(mainMenu);*/
@@ -34,3 +40,5 @@ app.on("ready",function() {
         ]
     }
 ];*/
+
+

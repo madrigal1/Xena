@@ -55,7 +55,7 @@ i.icon_actionbar {
     font-size:2rem !important;
 }
 
-#noteadd {
+#save {
     position:fixed;
     right:3.2rem;
     top:1.5rem;
@@ -206,6 +206,17 @@ textarea::-webkit-input-placeholder {
        padding-left:2rem;
        padding-top:0.5rem;
        font-family:"JaneRoeLight";
+       /* display:flex;
+       flex-direction: column;
+       flex-wrap:wrap;
+       justify-content:center; */
+    }
+
+    .mainarea_child {
+        width:30rem;
+        height:10rem;
+        background-color: rgb(175, 175, 223);
+        margin: auto;
     }
 
     body::-webkit-scrollbar {
