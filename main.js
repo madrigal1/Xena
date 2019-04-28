@@ -19,13 +19,7 @@ app.on("ready",function() {
            slashes:true,
       }));
 
-      globalShortcut.register('CommandOrControl+S', () => {
-        mainWindow.webContents.on('did-finish-load', ()=>{
-            let code = 'var editor = document.getElementById("mainarea");var text = editor.value;text.replace(/\r?\n/g, "<br />");if (text.replace(/ /g,"") != "") {log.createEntry(text,plannerType,function(entry) {console.log(entry);M.toast({html: "Saved !", classes: "toastSave"})fetch()}); };';
-            mainWindow.webContents.executeJavaScript(code);
-            console.log("test");
-        });
-      })
+
 
      /* const mainMenu = Menu.buildFromTemplate(templatemenu);
       Menu.setApplicationMenu(mainMenu);*/
