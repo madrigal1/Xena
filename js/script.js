@@ -6,9 +6,14 @@ function fetch() {
       var ed = document.getElementById("mainarea");
       List.innerHTML= "";
       for(var i=0;i<entries.length;i++) {
+        var today = new Date().toDateString();
         var entry = entries[(entries.length - 1 - i)];
         var econtainer = document.createElement("div");
         econtainer.id = entry.timestamp;
+        //LAtest data entry
+        if(today == entry.timestamp) {
+          ed.innerHTML = entry.text;
+        }
         econtainer.setAttribute("data-value",entry.text);
         console.log(entry.txt);
         econtainer.className ="logentries";

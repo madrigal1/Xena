@@ -11,6 +11,9 @@
     font-family: "mont";
     src: url("../fonts/mont/Montserrat-Light.otf");
     }
+body {
+    overflow:hidden;
+}
 .econtainer_Title {
     font-size:2rem;
     box-sizing:border-box;
@@ -226,7 +229,7 @@ textarea::-webkit-input-placeholder {
        left:24.5rem; 
        top:6.6rem; 
        height:37rem;
-       width:65.8rem;
+       width:66.5rem;
        word-wrap: break-word;
        outline:none;
        border:none;
@@ -250,18 +253,34 @@ textarea::-webkit-input-placeholder {
         margin: auto;
     }
 
-    body::-webkit-scrollbar {
+  #mainarea::-webkit-scrollbar {
         width: 9px;
     } 
 
-    body::-webkit-scrollbar-thumb {
+    #mainarea::-webkit-scrollbar-thumb {
         background: rgb(52, 45, 114);
         border: 1px solid rgb(0,0,0);
     }
-
-    body::-webkit-scrollbar-track {
+#mainarea::-webkit-scrollbar-track {
     background: rgb(0,0,0);
     border: 4px solid transparent;
     background-clip: content-box;  
     }
+
+    #entries::-webkit-scrollbar {
+        width: 9px;
+    } 
+
+    #entries::-webkit-scrollbar-thumb {
+        background: rgb(52, 45, 114);
+        border: 1px solid rgb(0,0,0);
+    }
+#entries::-webkit-scrollbar-track {
+    background: rgb(0,0,0);
+    border: 4px solid transparent;
+    background-clip: content-box;  
+    }
+
+  
+  
     
