@@ -3,11 +3,14 @@ var plannerType = 0;
 function fetch() {
   log.fetchEntries(plannerType,function(entries) {
       var List = document.getElementById("entries");
+      var ed = document.getElementById("mainarea");
       List.innerHTML= "";
       for(var i=0;i<entries.length;i++) {
         var entry = entries[(entries.length - 1 - i)];
         var econtainer = document.createElement("div");
         econtainer.id = entry.timestamp;
+        econtainer.setAttribute("data-value",entry.text);
+        console.log(entry.txt);
         econtainer.className ="logentries";
         var title = document.createElement('span');
         var date = document.createElement('span');
@@ -17,7 +20,23 @@ function fetch() {
         date.innerHTML = "- " + entry.timestamp;
         econtainer.appendChild(title);
         econtainer.appendChild(date);
-        List.appendChild(econtainer);      
+        List.appendChild(econtainer);  
+        var e = List.children;
+        if(e.length> 0) {
+               for(m=0;m<e.length;m++) {
+                  e[m].addEventListener("click", function(evt) {
+                      //Save Function for existing text ?
+                       ed.innerHTML = ""
+                       ed.innerHTML = this.getAttribute("data-value");
+                       this.style.borderLeft = "0.2rem solid #311b92";
+                       for(k=0;k<e.length;k++) {
+                          if(e[k] != evt.target) {
+                            e[k].style.borderLeft ="none";
+                          }
+                       }
+                  });
+               }
+        }    
 
       } 
  });
@@ -85,6 +104,11 @@ window.onload = function() {
                     var s = this.selectionStart;
                     this.value = this.value.substring(0,this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
                     this.selectionEnd = s+1; 
+                    break;
+            case 192:e.preventDefault();
+                    var date = new Date().toUTCString();
+                    var s = this.selectionStart;
+                    this.value = this.value.substring(0,this.selectionStart) + "\n \n" + date + this.value.substring(this.selectionEnd);
                     break;
         } 
     
