@@ -1,5 +1,6 @@
  /*   econtainer.style.borderLeft = "0.3rem #2196f3 solid"; */
 var plannerType = 0;
+var months =["January","Febuary","March","April","May","June","July","August","September","October","November","December"]
 function fetch() {
   log.fetchEntries(plannerType,function(entries) {
       var List = document.getElementById("entries");
@@ -7,12 +8,34 @@ function fetch() {
       List.innerHTML= "";
       for(var i=0;i<entries.length;i++) {
         var today = new Date().toDateString();
+        var month = new Date().getMonth();
+        var year = new Date().getDate();
+        
         var entry = entries[(entries.length - 1 - i)];
+        if(entries.type == plannerType) {
+          break;
+        }
         var econtainer = document.createElement("div");
         econtainer.id = entry.timestamp;
         //LAtest data entry
-        if(today == entry.timestamp) {
+      /*   if(today == entry.timestamp) {
           ed.innerHTML = entry.text;
+        } */
+        switch(plannerType) {
+          case 0:    if(today == entry.timestamp) {
+                         ed.innerHTML = entry.text;
+                     };
+                     break;
+          case 1:    if(month == entry.timestamp) {
+                        ed.innerHTML = entry.text;
+                     };
+                     break;
+          case 2:    if(year =entry.timestamp) {
+                         ed.innerHTML = entry.text;
+                     }
+                     break;
+          default:  ed.innerHTML = " ";
+                    break;
         }
         econtainer.setAttribute("data-value",entry.text);
         console.log(entry.txt);
@@ -22,7 +45,12 @@ function fetch() {
         title.className = "econtainer_Title";
         title.innerHTML =  entry.text.split('\n')[0] +"<br>" ;
         date.classList = "econtainer_Date";
+        //special case for month
+        if(plannerType != 1) {
         date.innerHTML = "- " + entry.timestamp;
+        } else {
+          date.innerHTML = "- "+ months[entry.timestamp];
+        }
         econtainer.appendChild(title);
         econtainer.appendChild(date);
         List.appendChild(econtainer);  
@@ -132,6 +160,7 @@ window.onload = function() {
                    }
              }
             changeMode(plannerType);
+            fetch();
          });
      }
     

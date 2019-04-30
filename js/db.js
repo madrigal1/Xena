@@ -90,7 +90,17 @@ DB.createEntry = function(text,type,callback) {
   var objStore = transaction.objectStore('log');
 
   // Create a timestamp for the todo item.
-  var timestamp = new Date().toDateString();
+  var timestamp;
+  switch(type) {
+    case 0:  timestamp = new Date().toDateString();
+              break;
+    case 1:  timestamp = new Date().getMonth();
+              break;
+    case 2:  timestamp = new Date().getFullYear();
+              break;
+    default: timestamp = new Date().toDateString();
+              break;
+  }
 
   // Create an object for the todo item.
   var entry = {
