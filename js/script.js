@@ -46,8 +46,8 @@ function fetch() {
                      break;
           default:  ed.innerHTML = " ";
                     if(i == entries.length-1) {
-                      ed.innerHTML = entry.text;
-                      econtainer.style.borderLeft = "0.2rem solid #311b92";
+                      /* ed.innerHTML = entry.text;
+                      econtainer.style.borderLeft = "0.2rem solid #311b92"; */
                       activeEntry = entry;
                     }
                     break;
