@@ -24,6 +24,9 @@ app.on("ready",function() {
      /* const mainMenu = Menu.buildFromTemplate(templatemenu);
       Menu.setApplicationMenu(mainMenu);*/
 });
+app.on("window-all-closed",function() {
+    app.quit();
+}); 
 
 /*const templatemenu = [
     {

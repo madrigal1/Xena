@@ -79,7 +79,7 @@ DB.open = function(callback) {
 /**
  * Create a new todo item.
  */
-DB.createEntry = function(text,type,callback) {
+DB.createEntry = function(activeEntry,type,callback) {
   // Get a reference to the db.
   var db = datastore;
 
@@ -103,15 +103,29 @@ DB.createEntry = function(text,type,callback) {
   }
 
   // Create an object for the todo item.
-  var entry = {
+  var entry ;
+  var request ;
+  if (activeEntry == null) {
+  entry= {
     'text': text,
     'type':type,
     'timestamp': timestamp
   };
+} else {
+  if(type != 3) {
+  entry= activeEntry;
+  } else {
+    entry = {
+      'text': activeEntry.text,
+      'type':activeEntry.type,
+      'timestamp': activeEntry.text.split('\n')[0]
+    }
+  }
+}
 
   // Create the datastore request.
-  var request = objStore.put(entry);
 
+  request = objStore.put(entry);
   // Handle a successful datastore put.
   request.onsuccess = function(e) {
     // Execute the callback function.
@@ -125,7 +139,7 @@ DB.createEntry = function(text,type,callback) {
 /**
  * Delete a todo item.
  */
-DB.deleteTodo = function(id) {
+DB.deleteEntry = function(id) {
   var db = datastore;
   var transaction = db.transaction(['log'], 'readwrite');
   var objStore = transaction.objectStore('log');
@@ -133,7 +147,7 @@ DB.deleteTodo = function(id) {
   var request = objStore.delete(id);
 
   request.onsuccess = function(e) {
-   console.log("deleted")
+   document.location.reload();
   }
 
   request.onerror = function(e) {
