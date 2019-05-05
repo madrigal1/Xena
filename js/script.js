@@ -196,7 +196,7 @@ window.onload = function() {
                     this.selectionEnd = s+1; 
                     break;
             case 192:e.preventDefault();
-                    var date = new Date().toUTCString();
+                    var date = new Date().toDateString() + " (" + new Date().toLocaleTimeString() +" )";
                     var s = this.selectionStart;
                     this.value = this.value.substring(0,this.selectionStart) + "\n \n" + date + this.value.substring(this.selectionEnd);
                     break;
